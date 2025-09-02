@@ -19,7 +19,7 @@ services:
       # - nginx
     restart: unless-stopped
     tty: true
-    command: bash -c "python3 /opt/odoo/odoo/odoo-bin --addons-path=/opt/odoo/customized/demo_course,/opt/odoo/odoo/addons -c /opt/odoo/odoo.conf && tail -f /dev/null"
+    command: bash -c "python3 /opt/odoo/odoo/odoo-bin --addons-path=/opt/odoo/odoo/addons,/opt/odoo/customized -c /opt/odoo/odoo.conf && tail -f /dev/null"
 
   postgres:
     image: postgres:13

@@ -23,7 +23,7 @@ class DemoClass(models.Model):
             if len(record.register_ids) > 0:
                 record.register_id = record.register_ids[0]
             else:
-                record.register_id = False
+                record.register_id = False 
 
     def register_inverse(self):
         for record in self:
@@ -53,7 +53,7 @@ class DemoStudent(models.Model):
                                     column1='col_student_id',
                                     column2='col_class_id')
     # khai báo field age
-    age = fields.Integer()
+    age = fields.Integer() 
     name_age_combine = fields.Char()
     name_age_compute = fields.Char(compute="compute_name_age_combine_field")
     age_copy = fields.Integer(compute="copy_age", inverse="reverse_age")
@@ -72,12 +72,12 @@ class DemoStudent(models.Model):
     def update_name_age_combine_field(self):
         for record in self:
             if record.name:
-                record.name_age_combine = record.name + " (%d)" % record.age
+                record.name_age_combine = record.name + " (%d)  " % record.age
     
     @api.depends('name', 'age')
     def compute_name_age_combine_field(self):
         for record in self:
-            if record.name:
+            if record.name: 
                 record.name_age_compute = record.name + " (%d)" % record.age
             else:
                 record.name_age_compute = False
